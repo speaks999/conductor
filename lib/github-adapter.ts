@@ -49,7 +49,7 @@ export class GitHubAdapter {
       `https://api.github.com/repos/${this.config.owner}/${this.config.repo}/git/ref/heads/${baseBranch}`,
       {
         headers: {
-          'Authorization': `token ${this.config.token}`,
+          'Authorization': `Bearer ${this.config.token}`,
           'Accept': 'application/vnd.github.v3+json',
         },
       }
@@ -66,7 +66,7 @@ export class GitHubAdapter {
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
-        'Authorization': `token ${this.config.token}`,
+        'Authorization': `Bearer ${this.config.token}`,
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json',
       },
@@ -97,7 +97,7 @@ export class GitHubAdapter {
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
-        'Authorization': `token ${this.config.token}`,
+        'Authorization': `Bearer ${this.config.token}`,
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json',
       },
@@ -137,7 +137,7 @@ export class GitHubAdapter {
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
-        'Authorization': `token ${this.config.token}`,
+        'Authorization': `Bearer ${this.config.token}`,
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json',
       },

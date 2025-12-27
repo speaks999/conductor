@@ -14,7 +14,7 @@ Conductor orchestrates agents across the entire SDLC, from intent to production.
 - **Reasoning**: Vercel AI SDK v6
 - **State**: Supabase
 - **UI**: Next.js + Square UI
-- **CI/Gate**: GitHub Actions
+- **Deployment**: Manual or via Vercel/Netlify
 
 ## Core Components
 
@@ -39,10 +39,10 @@ Manages branches, PRs, and commits for job execution.
 
 ### Quick Setup
 
-1. **Connect to GitHub repository** (if not already cloned):
+1. **Clone the repository** (if not already):
 ```bash
-./scripts/connect-github.sh
-./scripts/push-initial.sh
+git clone https://github.com/speaks999/conductor.git
+cd conductor
 ```
 
 2. **Install dependencies**:

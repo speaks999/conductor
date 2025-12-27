@@ -14,7 +14,7 @@ Conductor is built as a **control plane for AI-native software delivery** that o
 - **Reasoning**: Vercel AI SDK v6
 - **State**: Supabase
 - **UI**: Next.js + Tailwind CSS
-- **CI/Gate**: GitHub Actions (to be configured)
+- **Deployment**: Manual or via Vercel/Netlify
 
 ## Core Components Implemented
 
@@ -159,7 +159,7 @@ npm run dev
 5. **Testing**: Add unit and integration tests
 6. **Authentication**: Add user authentication (Supabase Auth)
 7. **Multi-tenant Support**: Add support for multiple users/organizations
-8. **CI/CD Integration**: Add GitHub Actions for automated testing
+8. **Deployment**: Deploy to Vercel, Netlify, or other hosting platform
 
 ## File Structure
 

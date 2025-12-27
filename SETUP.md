@@ -94,15 +94,9 @@ git branch -M main
 git push -u origin main
 ```
 
-3. **Set up GitHub Secrets** (for CI/CD):
-   - Go to repository Settings > Secrets and variables > Actions
-   - Add these secrets:
-     - `NEXT_PUBLIC_SUPABASE_URL`
-     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-     - `SUPABASE_SERVICE_ROLE_KEY`
-     - `OPENAI_API_KEY`
-     - `CURSOR_API_KEY` (when available)
-     - `GITHUB_TOKEN` (for GitHub operations)
+3. **GitHub Repository** (optional):
+   - The project works without GitHub integration
+   - If you want GitHub features (branches, PRs), set up a repository and configure `GITHUB_TOKEN` in your `.env.local`
 
 ## Step 3: Configure Environment Variables
 

@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
         owner,
         repo,
       }
-      githubBranch = await githubAdapter.createJobBranch(job.id)
+      githubBranch = await githubAdapter.createJobBranch(job.id, base_branch)
     } catch (error: any) {
       console.error('Failed to create GitHub branch:', error.message)
       // Continue without branch - job can still proceed
