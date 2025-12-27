@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 
@@ -44,18 +44,7 @@ export default function JobPage() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    fetchJob()
-    fetchTasks()
-    // Poll for updates every 5 seconds
-    const interval = setInterval(() => {
-      fetchJob()
-      fetchTasks()
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [jobId])
-
-  const fetchJob = async () => {
+  const fetchJob = useCallback(async () => {
     try {
       const response = await fetch(`/api/job/${jobId}`)
       const data = await response.json()
@@ -65,9 +54,9 @@ export default function JobPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [jobId])
 
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     try {
       const response = await fetch(`/api/job/${jobId}/tasks`)
       const data = await response.json()
@@ -75,7 +64,18 @@ export default function JobPage() {
     } catch (error) {
       console.error('Error fetching tasks:', error)
     }
-  }
+  }, [jobId])
+
+  useEffect(() => {
+    fetchJob()
+    fetchTasks()
+    // Poll for updates every 5 seconds
+    const interval = setInterval(() => {
+      fetchJob()
+      fetchTasks()
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [jobId, fetchJob, fetchTasks])
 
   const handleRunJob = async () => {
     try {
