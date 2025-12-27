@@ -24,12 +24,12 @@ jobs:
 
     - name: Verify ESLint config exists
       run: |
-        if [ ! -f .eslintrc.json ]; then
-          echo "::error::.eslintrc.json not found!"
+        if [ ! -f eslint.config.js ]; then
+          echo "::error::eslint.config.js not found!"
           exit 1
         fi
         echo "✅ ESLint config found:"
-        cat .eslintrc.json
+        head -10 eslint.config.js
 
     - name: Run linter
       run: npx eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0
