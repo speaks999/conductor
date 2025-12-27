@@ -75,3 +75,4 @@ echo "   NEXT_PUBLIC_SUPABASE_URL=your_url"
 echo "   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key"
 echo "   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key"
 
+

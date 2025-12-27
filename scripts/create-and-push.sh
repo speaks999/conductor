@@ -88,3 +88,4 @@ echo "   1. Set up GitHub Secrets: $REPO_URL/settings/secrets/actions"
 echo "   2. Create Supabase project (see SETUP.md)"
 echo "   3. Configure .env.local"
 
+

@@ -131,7 +131,7 @@ export class Orchestrator {
 
       // Store cursor run ID
       await supabaseAdmin
-        .from('tasks')
+        .from('conductor_tasks')
         .update({ cursor_run_id: cursorRunId })
         .eq('id', task.id)
 
@@ -157,7 +157,7 @@ export class Orchestrator {
     } else {
       // Retry
       await supabaseAdmin
-        .from('tasks')
+        .from('conductor_tasks')
         .update({ 
           attempt_count: newAttemptCount,
           status: 'retrying' as TaskStatus,
@@ -195,7 +195,7 @@ export class Orchestrator {
    */
   private async getJob(): Promise<Job | null> {
     const { data, error } = await supabaseAdmin
-      .from('jobs')
+      .from('conductor_jobs')
       .select('*')
       .eq('id', this.jobId)
       .single()
@@ -206,7 +206,7 @@ export class Orchestrator {
 
   private async getTasks(): Promise<Task[]> {
     const { data, error } = await supabaseAdmin
-      .from('tasks')
+      .from('conductor_tasks')
       .select('*')
       .eq('job_id', this.jobId)
       .order('created_at', { ascending: true })
@@ -225,7 +225,7 @@ export class Orchestrator {
     }
 
     await supabaseAdmin
-      .from('jobs')
+      .from('conductor_jobs')
       .update(update)
       .eq('id', this.jobId)
   }
@@ -240,14 +240,14 @@ export class Orchestrator {
     }
 
     await supabaseAdmin
-      .from('tasks')
+      .from('conductor_tasks')
       .update(update)
       .eq('id', taskId)
   }
 
   private async createTaskEvent(taskId: string, eventType: string, metadata?: any): Promise<void> {
     await supabaseAdmin
-      .from('task_events')
+      .from('conductor_task_events')
       .insert({
         task_id: taskId,
         event_type: eventType,

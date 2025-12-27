@@ -13,7 +13,7 @@ export async function POST(
   try {
     // Get job
     const { data: job, error: jobError } = await supabaseAdmin
-      .from('jobs')
+      .from('conductor_jobs')
       .select('*')
       .eq('id', params.id)
       .single()
@@ -51,7 +51,7 @@ export async function POST(
         })
 
         await supabaseAdmin
-          .from('jobs')
+          .from('conductor_jobs')
           .update({ github_pr_url: prUrl })
           .eq('id', job.id)
       } catch (error: any) {

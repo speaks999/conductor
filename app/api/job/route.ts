@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
 
     // Create job record
     const { data: job, error: jobError } = await supabaseAdmin
-      .from('jobs')
+      .from('conductor_jobs')
       .insert({
         repo_url,
         base_branch,
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     // Update job with branch
     if (githubBranch) {
       await supabaseAdmin
-        .from('jobs')
+        .from('conductor_jobs')
         .update({ github_branch: githubBranch })
         .eq('id', job.id)
     }
@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
     // Insert all tasks
     if (taskInserts.length > 0) {
       const { error: tasksError } = await supabaseAdmin
-        .from('tasks')
+        .from('conductor_tasks')
         .insert(taskInserts)
 
       if (tasksError) {
@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
 
     // Update job status to pending (ready to run)
     await supabaseAdmin
-      .from('jobs')
+      .from('conductor_jobs')
       .update({ status: 'pending' })
       .eq('id', job.id)
 
@@ -124,7 +124,7 @@ export async function GET(request: NextRequest) {
     const status = searchParams.get('status')
 
     let query = supabaseAdmin
-      .from('jobs')
+      .from('conductor_jobs')
       .select('*')
       .order('created_at', { ascending: false })
 

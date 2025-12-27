@@ -11,7 +11,7 @@ export async function GET(
 ) {
   try {
     const { data: job, error } = await supabaseAdmin
-      .from('jobs')
+      .from('conductor_jobs')
       .select('*')
       .eq('id', params.id)
       .single()

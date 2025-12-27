@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
     // Get task to find job
     const { data: task, error: taskError } = await supabaseAdmin
-      .from('tasks')
+      .from('conductor_tasks')
       .select('*, job_id')
       .eq('id', taskId)
       .single()

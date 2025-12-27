@@ -10,7 +10,7 @@ export async function GET(
 ) {
   try {
     const { data: tasks, error } = await supabaseAdmin
-      .from('tasks')
+      .from('conductor_tasks')
       .select('*')
       .eq('job_id', params.id)
       .order('created_at', { ascending: true })

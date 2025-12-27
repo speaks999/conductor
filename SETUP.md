@@ -193,3 +193,4 @@ If you encounter issues:
 3. Check Supabase and GitHub documentation
 4. Verify all environment variables are set correctly
 
+

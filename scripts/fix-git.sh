@@ -34,3 +34,4 @@ git status --short
 echo ""
 echo "📤 Next: Run ./scripts/push-initial.sh to push your code"
 
+
