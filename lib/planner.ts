@@ -1,6 +1,11 @@
 import { generateObject } from 'ai'
-import { openai } from '@ai-sdk/openai'
+import { createOpenAI } from '@ai-sdk/openai'
 import { z } from 'zod'
+
+// Create OpenAI provider with API key
+const openaiProvider = createOpenAI({
+  apiKey: process.env.OPENAI_API_KEY || '',
+})
 
 // Planner output schema - structured DAG of tasks
 const TaskSchema = z.object({
@@ -54,9 +59,7 @@ CRITICAL RULES:
 Create a plan that breaks this goal into phases and tasks. Each task should be independent enough to be executed by a Cursor Background Agent.`
 
   const { object } = await generateObject({
-    model: openai('gpt-4-turbo', {
-      apiKey: process.env.OPENAI_API_KEY || '',
-    }),
+    model: openaiProvider('gpt-4-turbo'),
     schema: PlanSchema,
     prompt,
   })
