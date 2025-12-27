@@ -17,7 +17,7 @@ export interface CreatePRParams {
   headBranch: string
 }
 
-class GitHubAdapter {
+export class GitHubAdapter {
   private config: GitHubConfig | null = null
 
   constructor() {

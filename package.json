@@ -16,7 +16,7 @@
     "react-dom": "^18.3.0",
     "@supabase/supabase-js": "^2.39.0",
     "ai": "^3.0.0",
-    "@ai-sdk/openai": "^0.0.0",
+    "@ai-sdk/openai": "^0.0.66",
     "zod": "^3.22.4",
     "@square/web-sdk": "^1.0.0",
     "openai": "^4.28.0"
