@@ -32,7 +32,7 @@ jobs:
         cat .eslintrc.json
 
     - name: Run linter
-      run: npx next lint .
+      run: npx eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0
       env:
         CI: true
         NEXT_TELEMETRY_DISABLED: 1
