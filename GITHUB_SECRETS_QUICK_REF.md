@@ -14,11 +14,19 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZqc3Bvbm9
 
 ## Where to Add Them
 
+**⚠️ Important: These must be Repository secrets, NOT Environment secrets!**
+
 1. Go to: https://github.com/speaks999/conductor/settings/secrets/actions
-2. Click "New repository secret"
-3. Paste the name and value above
-4. Click "Add secret"
-5. Repeat for both secrets
+2. Make sure you're on the **"Secrets"** tab
+3. Scroll to the **"Repository secrets"** section (NOT "Environment secrets")
+4. Click **"New repository secret"**
+5. Paste the name and value above
+6. Click "Add secret"
+7. Repeat for both secrets
+
+**If you already added them as Environment secrets:**
+- Delete the Environment secrets
+- Add them again as Repository secrets (see steps above)
 
 ## After Adding Secrets
 

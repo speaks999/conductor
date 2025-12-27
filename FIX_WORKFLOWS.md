@@ -6,12 +6,18 @@ Your workflows are failing because they need GitHub Secrets to access Supabase d
 
 ### Step 1: Add GitHub Secrets
 
+**Important:** These must be **Repository secrets**, NOT Environment secrets!
+
 1. Go to your repository settings:
    ```
    https://github.com/speaks999/conductor/settings/secrets/actions
    ```
 
-2. Click **"New repository secret"** and add these secrets one by one:
+2. Make sure you're on the **"Secrets"** tab (not "Variables")
+
+3. Scroll down to the **"Repository secrets"** section
+
+4. Click **"New repository secret"** and add these secrets one by one:
 
    **Secret 1: `NEXT_PUBLIC_SUPABASE_URL`**
    - Name: `NEXT_PUBLIC_SUPABASE_URL`
