@@ -1,8 +1,33 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+// Validate environment variables
+if (!supabaseUrl) {
+  throw new Error(
+    'Missing NEXT_PUBLIC_SUPABASE_URL environment variable. ' +
+    'Please create a .env.local file with your Supabase credentials. ' +
+    'See SETUP.md or SUPABASE_SETUP.md for instructions.'
+  )
+}
+
+if (!supabaseAnonKey) {
+  throw new Error(
+    'Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable. ' +
+    'Please create a .env.local file with your Supabase credentials. ' +
+    'See SETUP.md or SUPABASE_SETUP.md for instructions.'
+  )
+}
+
+if (!supabaseServiceRoleKey) {
+  throw new Error(
+    'Missing SUPABASE_SERVICE_ROLE_KEY environment variable. ' +
+    'Please create a .env.local file with your Supabase credentials. ' +
+    'See SETUP.md or SUPABASE_SETUP.md for instructions.'
+  )
+}
 
 // Client for client-side operations
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
